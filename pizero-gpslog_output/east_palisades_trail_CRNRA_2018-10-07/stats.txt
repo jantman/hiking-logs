@@ -1,0 +1,13 @@
+GPX file written to: 2018-10-07_14-26-28_trimmed.gpx
+Track Start: 2018-10-07 14:26:28 UTC
+Track End: 2018-10-07 17:47:47 UTC
+Track Duration: 3h 21m 19s
+2403 points in track
+Moving time: 2h 15m 10s
+Stopped time: 1h 4m 19s
+Max Speed: 3.4478 MPH
+2D (Horizontal) distance: 5.7687 Mi
+Total elevation increase: 1525.3776 ft
+Total elevation decrease: 1560.5515 ft
+Minimum elevation: 787.0768 ft
+Maximum elevation: 1155.1444 ft
