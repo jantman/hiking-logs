@@ -1,5 +1,3 @@
-Unable to decode JSON on line 1542; skipping. (ERROR: Expecting property name enclosed in double quotes: line 1 column 315 (char 314))
-GPX file written to: 2000-04-09_15-54-40.gpx
 Track Start: 2000-04-09 15:54:40+00:00 UTC
 Track End: 2000-04-09 18:04:09+00:00 UTC
 Track Duration: 2h 9m 29s
@@ -12,3 +10,4 @@ Total elevation increase: 1074.0955 ft
 Total elevation decrease: 1080.2274 ft
 Minimum elevation: 927.3786 ft
 Maximum elevation: 1222.5262 ft
+
