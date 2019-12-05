@@ -95,6 +95,16 @@ class GpxCalories(object):
             'max_elev': elev.maximum
         })
         """
+        # BEGIN TESTS
+        self.terrain_factor = 1.2
+        self.body_mass = 150 * 0.45359237
+        pack_wt = 50 * 0.45359237
+        vel = 1.78816  # 4 mph in m/s
+        assert self.pandolf(pack_wt, vel, 0, 3600) == 555
+        assert self.pandolf(pack_wt, vel, 6, 3600) == 908
+        assert self.pandolf(pack_wt, vel, -2, 3600) == 438
+        return
+        # END TESTS
         mass_loss_per_point = (self.pack_start_mass - self.pack_end_mass) / self.gpx.get_points_no()
         pack_mass = self.pack_start_mass
         last_point = None
@@ -141,11 +151,8 @@ class GpxCalories(object):
         n = self.terrain_factor
         G = grade_pct
         V = speed_ms
-        raise NotImplementedError(
-            "This is definitely wrong. I think I flubbed something when copying it."
-        )
         watts = (
-            1.5 * W + 2.0 * (W + L) * pow(( L / W ), 2) +
+            1.5 * W + 2.0 * (W + L) * pow(L / W, 2) +
             n * (W + L) * (1.5 * pow(V, 2) + 0.35 * V * G)
         )
         logger.debug('Watts=%s', watts)
@@ -153,8 +160,8 @@ class GpxCalories(object):
             cf = (
                 (-1 * n) * (
                     (G * (W + L) * V) / 3.5 -
-                    ( ( W + L ) * pow(G + 6.0, 2) / W) +
-                    ( 25.0 * pow(V, 2))
+                    ((W + L) * pow(G + 6.0, 2) / W) +
+                    (25.0 * pow(V, 2))
                 )
             )
             logger.debug(
@@ -165,8 +172,8 @@ class GpxCalories(object):
         calories_per_hour = watts * 859.84522785899
         logger.debug('INITIAL calories per hour: %s', calories_per_hour)
         calories_per_hour = (
-            1.5 * W / 2.2 + 2 * ( W + L ) / 2.2 * (L / W) * ( L / W ) +
-            n * ( W + L ) / 2.2 * ( 1.5 * V * V + 0.35 * V * G)
+            1.5 * W + 2 * (W + L) * pow(L / W, 2) +
+            n * (W + L) * (1.5 * pow(V, 2) + 0.35 * V * G)
         ) / 4184.0 * 60.0 * 60.0
         logger.debug(
             'Calories per hour: %s; hours: %s', calories_per_hour, hours
