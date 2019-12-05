@@ -141,6 +141,9 @@ class GpxCalories(object):
         n = self.terrain_factor
         G = grade_pct
         V = speed_ms
+        raise NotImplementedError(
+            "This is definitely wrong. I think I flubbed something when copying it."
+        )
         watts = (
             1.5 * W + 2.0 * (W + L) * pow(( L / W ), 2) +
             n * (W + L) * (1.5 * pow(V, 2) + 0.35 * V * G)
@@ -160,8 +163,15 @@ class GpxCalories(object):
             )
             watts += cf
         calories_per_hour = watts * 859.84522785899
-        logger.debug('Calories per hour: %s', calories_per_hour)
-        return calories_per_hour / hours
+        logger.debug('INITIAL calories per hour: %s', calories_per_hour)
+        calories_per_hour = (
+            1.5 * W / 2.2 + 2 * ( W + L ) / 2.2 * (L / W) * ( L / W ) +
+            n * ( W + L ) / 2.2 * ( 1.5 * V * V + 0.35 * V * G)
+        ) / 4184.0 * 60.0 * 60.0
+        logger.debug(
+            'Calories per hour: %s; hours: %s', calories_per_hour, hours
+        )
+        return calories_per_hour * hours
 
 
 def parse_args(argv):
