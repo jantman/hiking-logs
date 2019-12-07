@@ -22,7 +22,8 @@ logger = logging.getLogger()
 class GpxCalories(object):
 
     def __init__(
-        self, gpx, weight_lbs, pack_start_lbs, pack_end_lbs, terrain_factor
+        self, gpx, weight_lbs, pack_start_lbs, pack_end_lbs, terrain_factor,
+        rmr
     ):
         """
         Initialize GpxCalories estimator.
@@ -55,14 +56,16 @@ class GpxCalories(object):
         :param pack_start_lbs: Pack starting weight in pounds.
         :param pack_end_lbs: Pack ending weight in pounds.
         :param terrain_factor: Terrain factor for Pandolf equation.
+        :param rmr: Resting Metabolic Rate in ml O2/kg/min
         """
         self.gpx = gpx
         self.body_mass = weight_lbs * 0.45359237
         self.pack_start_mass = pack_start_lbs * 0.45359237
         self.pack_end_mass = pack_end_lbs * 0.45359237
         self.terrain_factor = terrain_factor
+        self.rmr = rmr
 
-    def run(self):
+    def run(self, downsample=1):
         """
         Generate the calorie count estimates for the GPX track.
 
@@ -95,25 +98,20 @@ class GpxCalories(object):
             'max_elev': elev.maximum
         })
         """
-        # BEGIN TESTS
-        self.terrain_factor = 1.2
-        self.body_mass = 150 * 0.45359237
-        pack_wt = 50 * 0.45359237
-        vel = 1.78816  # 4 mph in m/s
-        assert self.pandolf(pack_wt, vel, 0, 3600) == 555
-        assert self.pandolf(pack_wt, vel, 6, 3600) == 908
-        assert self.pandolf(pack_wt, vel, -2, 3600) == 438
-        return
-        # END TESTS
-        mass_loss_per_point = (self.pack_start_mass - self.pack_end_mass) / self.gpx.get_points_no()
+        mass_loss_per_point = (
+            self.pack_start_mass - self.pack_end_mass
+        ) / self.gpx.get_points_no()
         pack_mass = self.pack_start_mass
         last_point = None
         cal_pandolf = 0
-        for point in gpx.walk(only_points=True):
+        cal_ludlow = 0
+        for point, _, _, idx in gpx.walk():
             if last_point is None:
                 last_point = point
                 continue
             pack_mass -= mass_loss_per_point
+            if idx % downsample != 0:
+                continue
             logger.debug(
                 'Point at (%s,%s) -> %s',
                 last_point.latitude, last_point.longitude, last_point.elevation
@@ -129,16 +127,20 @@ class GpxCalories(object):
             if distance != 0:
                 grade = (elev_gain / distance) * 100.0  # percent
             speed = point.speed_between(last_point)  # meters/second
-            # WARNING - this next one is temporary for testing; we need to spread out the mass
             logger.debug(
-                'distance=%s meters; time_diff=%s seconds; elev_gain=%s meters; grade=%s%%',
+                'distance=%s meters; time_diff=%s seconds; '
+                'elev_gain=%s meters; grade=%s%%',
                 distance, time_diff, elev_gain, grade
             )
             cal_pandolf += self.pandolf(
                 pack_mass, speed, grade, time_diff
             )
+            cal_ludlow += self.ludlow_weyand(
+                grade, speed, time_diff
+            )
             last_point = point
         print('Pandolf calories: %s' % cal_pandolf)
+        print('Ludlow Weyand calories: %s' % cal_ludlow)
 
     def pandolf(self, pack_kg, speed_ms, grade_pct, duration_sec):
         logger.debug(
@@ -155,30 +157,49 @@ class GpxCalories(object):
             1.5 * W + 2.0 * (W + L) * pow(L / W, 2) +
             n * (W + L) * (1.5 * pow(V, 2) + 0.35 * V * G)
         )
-        logger.debug('Watts=%s', watts)
+        cf = 0
         if G < 0:
+            # add Santee correction factor for negative grade
             cf = (
-                (-1 * n) * (
+                n * (
                     (G * (W + L) * V) / 3.5 -
                     ((W + L) * pow(G + 6.0, 2) / W) +
                     (25.0 * pow(V, 2))
                 )
             )
-            logger.debug(
-                'Grade is %s; watts=%s add Santee cf=%s; final=%s',
-                grade_pct, watts, cf, watts + cf
-            )
-            watts += cf
-        calories_per_hour = watts * 859.84522785899
-        logger.debug('INITIAL calories per hour: %s', calories_per_hour)
-        calories_per_hour = (
-            1.5 * W + 2 * (W + L) * pow(L / W, 2) +
-            n * (W + L) * (1.5 * pow(V, 2) + 0.35 * V * G)
-        ) / 4184.0 * 60.0 * 60.0
+        calories_per_hour = (watts + cf) / 4184.0 * 60.0 * 60.0
         logger.debug(
-            'Calories per hour: %s; hours: %s', calories_per_hour, hours
+            'Grade is %s; watts=%s add Santee cf=%s; final=%s; calories per '
+            'hour=%s hours=%s',
+            grade_pct, watts, cf, watts + cf, calories_per_hour, hours
         )
         return calories_per_hour * hours
+
+    def ludlow_weyand(self, G, V, duration_sec):
+        v_O2_rest = self.rmr
+        hours = duration_sec / 60.0 / 60.0
+        # G is positive surface inclination in percent grade
+        # V is velocity in meters/second
+        C1 = 0.32
+        v_O2_walk_min = 3.28
+        C2 = 0.19
+        C3 = 2.66
+        Cdecline = 0.73
+        cf = 0
+        if G < 0:
+            # not entirely sure about this part
+            G = 0
+            cf = Cdecline
+        ml_o2_per_kg_per_min = (
+            v_O2_rest +
+            (C1 * G) + v_O2_walk_min +
+            (1 + (C2 * G)) * (C3 * pow(V, 2))
+        ) + cf
+        ml_o2_per_min = ml_o2_per_kg_per_min * self.body_mass
+        l_o2_per_min = ml_o2_per_min / 1000.0
+        kcal_per_min = l_o2_per_min * 5
+        kcal_per_hour = kcal_per_min * 60.0
+        return kcal_per_hour * hours
 
 
 def parse_args(argv):
@@ -200,6 +221,23 @@ def parse_args(argv):
     p.add_argument('-t', '--terrain-factor', dest='terrain', action='store',
                    type=float, default=None,
                    help='Terrain factor (for Pandolf equation)')
+    p.add_argument('-H', '--height', dest='height', action='store',
+                   type=float, default=None, help='Height in cm')
+    p.add_argument('-a', '--age', dest='age', action='store',
+                   type=float, default=None, help='Age in years')
+    p.add_argument('-R', '--rmr', dest='rmr', action='store', type=float,
+                   default=None,
+                   help='Resting metabolic rate in ml O2/kg/minute. This can be'
+                        'specified instead of the height, age, and gender '
+                        'parameters. All of the sources that I could find '
+                        'to calculate approximate RMR use gender-specific '
+                        'formulas. This allows overriding those. For '
+                        'calculation (if not specifying this parameter) we use '
+                        'the Mifflin-St Jeor formula.')
+    p.add_argument('-m', '--male', dest='male', action='store_true',
+                   default=False,
+                   help='Calculation is for a male. Defaults to false (female);'
+                        'see help for -R/--rmr for more information')
     args = p.parse_args(argv)
     if args.weight is None:
         args.weight = float(input('Body weight in pounds: ').strip())
@@ -219,7 +257,7 @@ def parse_args(argv):
         3. 10.12922/jshp.0067.2015.
         """
         sys.stderr.write('Paved road: 1.0\n')
-        std.stderr.write('Gravel/dirt road: 1.2\n')
+        sys.stderr.write('Gravel/dirt road: 1.2\n')
         sys.stderr.write('Mud: 1.5\n')
         sys.stderr.write('Wet clay/ice: 1.7\n')
         sys.stderr.write('Sand: 2.0\n')  # approximate
@@ -229,6 +267,17 @@ def parse_args(argv):
             'slope will handle terrain variation.\n'
         )
         args.terrain = float(input('Terrain factor: ').strip())
+    if args.rmr is None:
+        # using the Mifflin-St Jeor formula
+        rmr = (10 * args.weight) + (6.25 * args.height) - (5 * args.age)
+        if args.male:
+            rmr += 5
+        else:
+            rmr -= 161
+        # we now have RMR in calories per day; we need it in ml O2/kg/min
+        l_per_day = rmr / 5.0
+        l_per_minute = l_per_day / (60 * 24)
+        args.rmr = l_per_minute / args.weight * 1000
     return args
 
 
@@ -287,6 +336,13 @@ if __name__ == "__main__":
         with open(files[0] + '.stats', 'w') as fh:
             fh.write(stats_text)
         print(stats_text)
-    GpxCalories(
-        gpx, args.weight, args.pack_start, args.pack_end, args.terrain
-    ).run()
+    cls = GpxCalories(
+        gpx, args.weight, args.pack_start, args.pack_end, args.terrain, args.rmr
+    )
+    cls.run()
+    cls.run(downsample=2)
+    cls.run(downsample=3)
+    cls.run(downsample=4)
+    cls.run(downsample=5)
+    cls.run(downsample=8)
+    cls.run(downsample=10)
