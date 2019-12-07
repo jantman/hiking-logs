@@ -1,0 +1,9 @@
+Estimated calories burned at original intervals: 710
+Estimated calories burned downsampled to every 2 points: 683
+Estimated calories burned downsampled to every 3 points: 682
+Estimated calories burned downsampled to every 4 points: 682
+Estimated calories burned downsampled to every 5 points: 652
+Estimated calories burned downsampled to every 8 points: 646
+Estimated calories burned downsampled to every 10 points: 696
+Estimated calories burned downsampled to every 12 points: 615
+Estimated calories burned downsampled to every 20 points: 737
