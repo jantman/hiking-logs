@@ -61,7 +61,7 @@ class GpxCalories(object):
             if idx % downsample != 0:
                 continue
             logger.debug(
-                'Point at (%s,%s) -> %s',
+                'Last Point at (%s,%s) -> %s',
                 last_point.latitude, last_point.longitude, last_point.elevation
             )
             logger.debug(
