@@ -1,0 +1,799 @@
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document id="docid">
+    <name>doc name</name>
+    <description>doc description</description>
+    <visibility>1</visibility>
+    <Placemark id="20200808_113234">
+      <name>20200808_113234</name>
+      <description>20200808_113234.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.717544,34.782768</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134403">
+      <name>20200816_134403</name>
+      <description>20200816_134403.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.650204,34.860451</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_135435">
+      <name>20200816_135435</name>
+      <description>20200816_135435.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.657910,34.855568</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134427">
+      <name>20200816_134427</name>
+      <description>20200816_134427.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.650334,34.860271</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_130448">
+      <name>20200816_130448</name>
+      <description>20200816_130448.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.594273,34.818583</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_114325">
+      <name>20200816_114325</name>
+      <description>20200816_114325.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.707624,34.761228</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_135451">
+      <name>20200816_135451</name>
+      <description>20200816_135451.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.769907,34.778791</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_115523">
+      <name>20200808_115523</name>
+      <description>20200808_115523.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.730251,34.748394</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134426">
+      <name>20200816_134426</name>
+      <description>20200816_134426.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.650334,34.860271</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_102427">
+      <name>20200816_102427</name>
+      <description>20200816_102427.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.242745,34.475676</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_151905">
+      <name>20200808_151905</name>
+      <description>20200808_151905.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.079898,34.761852</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_105540">
+      <name>20200808_105540</name>
+      <description>20200808_105540.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.734295,34.821473</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_150131">
+      <name>20200808_150131</name>
+      <description>20200808_150131.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.066387,34.747854</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200805_144933">
+      <name>20200805_144933</name>
+      <description>20200805_144933.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.816805,34.685540</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134305">
+      <name>20200816_134305</name>
+      <description>20200816_134305.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.649881,34.861151</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_111614">
+      <name>20200808_111614</name>
+      <description>20200808_111614.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.723925,34.807719</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_123919">
+      <name>20200816_123919</name>
+      <description>20200816_123919.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.614906,34.801783</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_114346">
+      <name>20200816_114346</name>
+      <description>20200816_114346.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.707645,34.761717</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_125657">
+      <name>20200816_125657</name>
+      <description>20200816_125657.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.595025,34.818644</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_151904">
+      <name>20200808_151904</name>
+      <description>20200808_151904.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.079825,34.761864</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_123909">
+      <name>20200816_123909</name>
+      <description>20200816_123909.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.614906,34.801783</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134344">
+      <name>20200816_134344</name>
+      <description>20200816_134344.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.650278,34.861106</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134443">
+      <name>20200816_134443</name>
+      <description>20200816_134443.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.650334,34.860271</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_150143">
+      <name>20200808_150143</name>
+      <description>20200808_150143.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.066435,34.747870</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_113631">
+      <name>20200808_113631</name>
+      <description>20200808_113631.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.722825,34.778970</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_111605">
+      <name>20200808_111605</name>
+      <description>20200808_111605.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.723986,34.807517</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_125256">
+      <name>20200816_125256</name>
+      <description>20200816_125256.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.594654,34.818687</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_130452">
+      <name>20200816_130452</name>
+      <description>20200816_130452.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.594273,34.818584</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_141145">
+      <name>20200816_141145</name>
+      <description>20200816_141145.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.628374,34.858435</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_114438">
+      <name>20200816_114438</name>
+      <description>20200816_114438.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.707922,34.762502</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134417">
+      <name>20200816_134417</name>
+      <description>20200816_134417.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.650334,34.860271</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_102403">
+      <name>20200816_102403</name>
+      <description>20200816_102403.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.245166,34.517697</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_145829">
+      <name>20200808_145829</name>
+      <description>20200808_145829.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.064369,34.748088</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_114405">
+      <name>20200816_114405</name>
+      <description>20200816_114405.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.707801,34.762388</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134444">
+      <name>20200816_134444</name>
+      <description>20200816_134444.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.650334,34.860271</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_135421">
+      <name>20200816_135421</name>
+      <description>20200816_135421.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.834473,34.832482</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134248">
+      <name>20200816_134248</name>
+      <description>20200816_134248.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.649629,34.861158</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_111657">
+      <name>20200808_111657</name>
+      <description>20200808_111657.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.724346,34.807389</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_135449">
+      <name>20200816_135449</name>
+      <description>20200816_135449.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.769907,34.778791</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_130445">
+      <name>20200816_130445</name>
+      <description>20200816_130445.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.594273,34.818582</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_150146">
+      <name>20200808_150146</name>
+      <description>20200808_150146.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.066440,34.747874</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_114410">
+      <name>20200816_114410</name>
+      <description>20200816_114410.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.707801,34.762388</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_114355">
+      <name>20200816_114355</name>
+      <description>20200816_114355.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.707734,34.762126</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_135440">
+      <name>20200816_135440</name>
+      <description>20200816_135440.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.657965,34.855652</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_114429">
+      <name>20200816_114429</name>
+      <description>20200816_114429.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.707922,34.762502</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_114347">
+      <name>20200816_114347</name>
+      <description>20200816_114347.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.707645,34.761717</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_125008">
+      <name>20200816_125008</name>
+      <description>20200816_125008.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.594890,34.818649</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_112003">
+      <name>20200808_112003</name>
+      <description>20200808_112003.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.720423,34.805115</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_125300">
+      <name>20200816_125300</name>
+      <description>20200816_125300.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.594654,34.818687</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_102444">
+      <name>20200816_102444</name>
+      <description>20200816_102444.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.249775,34.474074</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134307">
+      <name>20200816_134307</name>
+      <description>20200816_134307.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.649881,34.861151</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200805_143112">
+      <name>20200805_143112</name>
+      <description>20200805_143112.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.807984,34.693020</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_102454">
+      <name>20200816_102454</name>
+      <description>20200816_102454.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.249775,34.474074</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200805_143108">
+      <name>20200805_143108</name>
+      <description>20200805_143108.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.807978,34.693033</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134246">
+      <name>20200816_134246</name>
+      <description>20200816_134246.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.649629,34.861158</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_115513">
+      <name>20200808_115513</name>
+      <description>20200808_115513.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.730292,34.748377</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_102442">
+      <name>20200816_102442</name>
+      <description>20200816_102442.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.249775,34.474074</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_123925">
+      <name>20200816_123925</name>
+      <description>20200816_123925.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.615093,34.801772</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_114426">
+      <name>20200816_114426</name>
+      <description>20200816_114426.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.707922,34.762502</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134402">
+      <name>20200816_134402</name>
+      <description>20200816_134402.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.650204,34.860451</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_114327">
+      <name>20200816_114327</name>
+      <description>20200816_114327.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.707624,34.761228</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_125049">
+      <name>20200816_125049</name>
+      <description>20200816_125049.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.594767,34.818627</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_150239">
+      <name>20200816_150239</name>
+      <description>20200816_150239.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.558602,34.806711</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_114345">
+      <name>20200816_114345</name>
+      <description>20200816_114345.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.707589,34.761550</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_125018">
+      <name>20200816_125018</name>
+      <description>20200816_125018.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.594766,34.818680</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_102455">
+      <name>20200816_102455</name>
+      <description>20200816_102455.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.249775,34.474074</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134416">
+      <name>20200816_134416</name>
+      <description>20200816_134416.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.650334,34.860271</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_125030">
+      <name>20200816_125030</name>
+      <description>20200816_125030.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.594798,34.818665</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_135446">
+      <name>20200816_135446</name>
+      <description>20200816_135446.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.769907,34.778791</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134318">
+      <name>20200816_134318</name>
+      <description>20200816_134318.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.649881,34.861151</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_141146">
+      <name>20200816_141146</name>
+      <description>20200816_141146.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.628374,34.858435</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_102421">
+      <name>20200816_102421</name>
+      <description>20200816_102421.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.242752,34.475793</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_141134">
+      <name>20200816_141134</name>
+      <description>20200816_141134.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.628518,34.858647</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_114407">
+      <name>20200816_114407</name>
+      <description>20200816_114407.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.707801,34.762388</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_114439">
+      <name>20200816_114439</name>
+      <description>20200816_114439.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.707922,34.762502</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_125248">
+      <name>20200816_125248</name>
+      <description>20200816_125248.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.594654,34.818687</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_145822">
+      <name>20200808_145822</name>
+      <description>20200808_145822.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.064376,34.748086</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_123922">
+      <name>20200816_123922</name>
+      <description>20200816_123922.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.615093,34.801772</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_112744">
+      <name>20200808_112744</name>
+      <description>20200808_112744.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.714356,34.793038</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_150141">
+      <name>20200808_150141</name>
+      <description>20200808_150141.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.066435,34.747870</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_150240">
+      <name>20200816_150240</name>
+      <description>20200816_150240.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.558602,34.806711</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_125659">
+      <name>20200816_125659</name>
+      <description>20200816_125659.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.595025,34.818644</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_125027">
+      <name>20200816_125027</name>
+      <description>20200816_125027.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.594799,34.818665</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_111323">
+      <name>20200808_111323</name>
+      <description>20200808_111323.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.724833,34.806986</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_134404">
+      <name>20200816_134404</name>
+      <description>20200816_134404.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.650204,34.860451</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_111430">
+      <name>20200808_111430</name>
+      <description>20200808_111430.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.724524,34.806989</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200805_143713">
+      <name>20200805_143713</name>
+      <description>20200805_143713.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.815132,34.692083</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_123739">
+      <name>20200816_123739</name>
+      <description>20200816_123739.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.612100,34.800030</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_125128">
+      <name>20200816_125128</name>
+      <description>20200816_125128.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.594730,34.818528</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_125016">
+      <name>20200816_125016</name>
+      <description>20200816_125016.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.594766,34.818680</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_111611">
+      <name>20200808_111611</name>
+      <description>20200808_111611.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.723925,34.807719</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_113704">
+      <name>20200808_113704</name>
+      <description>20200808_113704.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.722786,34.778547</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_105556">
+      <name>20200808_105556</name>
+      <description>20200808_105556.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.734295,34.821471</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_145815">
+      <name>20200808_145815</name>
+      <description>20200808_145815.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.064379,34.748079</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_114436">
+      <name>20200816_114436</name>
+      <description>20200816_114436.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.707922,34.762502</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_135430">
+      <name>20200816_135430</name>
+      <description>20200816_135430.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.834473,34.832482</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200808_111607">
+      <name>20200808_111607</name>
+      <description>20200808_111607.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.723986,34.807517</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200805_143717">
+      <name>20200805_143717</name>
+      <description>20200805_143717.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-83.815135,34.692064</coordinates>
+      </Point>
+    </Placemark>
+    <Placemark id="20200816_125025">
+      <name>20200816_125025</name>
+      <description>20200816_125025.jpg</description>
+      <visibility>1</visibility>
+      <Point>
+        <coordinates>-84.594798,34.818665</coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>
