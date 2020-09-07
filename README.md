@@ -11,8 +11,9 @@ GPS tracks and other info from my hikes
 ## Usage
 
 1. ``source bin/activate && cd pizero-gpslog_output``
-2. Create a directory for the new hike, ``cd`` to it, and copy the pizero-gpslog ``.json`` output file there.
-3. ``../../convert.py``
+2. Create a directory for the new hike or track, ``cd`` to it, and copy the pizero-gpslog ``.json`` output file there. If there's more than one, combine them with ``cat``.
+3. For hikes: ``../../convert_hike.py``
+4. ``cd`` back to the top directory and run ``./convert-all.py``
 
 ## Calorie Calculations and Inaccuracies
 
