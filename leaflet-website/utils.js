@@ -37,3 +37,12 @@ function drawTrack(rawPoints, name) {
   }).bindPopup(name).addTo(visibleTrack);
   return visibleTrack;
 }
+
+function addPhotos(photos) {
+  fg = L.featureGroup();
+  for (idx in photos) {
+    p = photos[idx];
+    L.marker([p["lat"], p["lng"]]).bindPopup(p["meta"]["name"] + "\n" + p["lat"] + "," + p["lng"]).addTo(fg);
+  }
+  return fg;
+}

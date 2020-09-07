@@ -7,8 +7,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="leaflet-1.7.1.css"/>
-<script src="leaflet-1.7.1.js"></script>
+<link rel="stylesheet" href="leaflet-1.7.1/leaflet.css"/>
+<script src="leaflet-1.7.1/leaflet.js"></script>
 <script src="Leaflet.MultiOptionsPolyline.js"></script>
 <script src="zepto.min.js"></script>
 <script src="utils.js"></script>
@@ -49,6 +49,11 @@ for (const name in hiking_tracks) {
   track.addTo(overlayMaps["Hiking"]);
 }
 overlayMaps["Hiking"].addTo(map);
+
+//var camp_site_photos
+photoGroup = addPhotos(camp_site_photos);
+photoGroup.addTo(overlayMaps["CampSite_Photos"]);
+overlayMaps["CampSite_Photos"].addTo(map);
 
 L.control.layers({"Base": baseLayer}, overlayMaps).addTo(map);
 
