@@ -11,112 +11,33 @@
 <script src="leaflet-1.7.1.js"></script>
 <script src="Leaflet.MultiOptionsPolyline.js"></script>
 <script src="zepto.min.js"></script>
+<script src="utils.js"></script>
 
 </head>
 <body>
 
 <div id="map" style="width: 600px; height: 600px;"></div>
+<script src="data.js"></script>
 <script>
-  const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 20;
-  const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 20;
-  var mapdiv = document.getElementById('map');
-  mapdiv.style.width = vw + 'px';
-  mapdiv.style.height = vh + 'px';
-  //var map = L.map('map').setView([51.505, -0.09], 13);
-  /*
-  var map = L.map('map');
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-  */
+const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 20;
+const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 20;
+var mapdiv = document.getElementById('map');
+mapdiv.style.width = vw + 'px';
+mapdiv.style.height = vh + 'px';
 
-  
+var map = L.map('map');
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
 
-  /*global L, Zepto*/
-  (function ($) {
-      'use strict';
+track = null;
+for (const name in driving_tracks) {
+  track = drawTrack(driving_tracks[name], name);
+  track.addTo(map);
+}
+// zoom the map to the polyline
+map.fitBounds(track.getBounds());
 
-      function Demo(mapId, multiOptionsKey) {
-          this.mapId = mapId;
-          this.selected = multiOptionsKey || 'altitude';
-      }
-
-      Demo.prototype = {
-          constructor: Demo,
-
-          trackPointFactory: function (data) {
-              return data.map(function (item) {
-                  var trkpt = L.latLng(item.lat, item.lng, item.alt);
-                  trkpt.meta = item.meta;
-                  return trkpt;
-              });
-          },
-
-          loadData: function (name) {
-              var me = this;
-
-              $.getJSON(name, function (data) {
-                  me.trackPoints = me.trackPointFactory(data);
-                  me.showMapAndTrack();
-              });
-          },
-
-          _multiOptions: {
-              cpm: {
-                  optionIdxFn: function (latLng) {
-                      var i, hr = latLng.meta.cpm,
-                          zones = [0, 5, 10, 15, 20, 25, 30, 35, 40]; // beats per minute
-
-                      for (i = 0; i < zones.length; ++i) {
-                          if (hr <= zones[i]) {
-                              return i;
-                          }
-                      }
-                      return zones.length;
-                  },
-                  options: [
-                      {color: '#0000FF'}, {color: '#0040FF'}, {color: '#0080FF'}, // below zone
-                      {color: '#00FFB0'}, {color: '#00E000'}, {color: '#80FF00'}, // in zone
-                      {color: '#FFFF00'}, {color: '#FFC000'}, {color: '#FF0000'}  // above zone
-                  ]
-              }
-          },
-
-          showMapAndTrack: function () {
-              var me = this,
-                  points = me.trackPoints;
-
-              if (!me.map) {
-                  me.map = L.map(me.mapId);
-                  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  }).addTo(me.map);
-              }
-
-              if (me.visibleTrack) {
-                  me.map.removeLayer(me.visibleTrack);
-              }
-
-              me.visibleTrack = L.featureGroup();
-
-              // create a polyline from an arrays of LatLng points
-              var polyline = L.multiOptionsPolyline(points, {
-                  multiOptions: me._multiOptions[me.selected],
-                  weight: 5,
-                  lineCap: 'butt',
-                  opacity: 0.75,
-                  smoothFactor: 1}).addTo(me.visibleTrack);
-
-              // zoom the map to the polyline
-              me.map.fitBounds(polyline.getBounds());
-
-              me.visibleTrack.addTo(me.map);
-          }
-      };
-
-      new Demo('map', 'cpm').loadData('../pizero-gpslog_output/driving/2020-09-06_driving_camp_site_scouting/combined.json.leaflet.json');
-
-  })(Zepto);
 </script>
 </body>
 </html>
