@@ -42,7 +42,7 @@ class GpsConverter:
         if not os.path.exists(self.leaflet_json_path):
             logger.info('Writing to: %s', self.leaflet_json_path)
             with open(self.leaflet_json_path, 'w') as fh:
-                fh.write(json.dumps(lj, sort_keys=True, indent=4))
+                fh.write(json.dumps(jl, sort_keys=True, indent=4))
             logger.info('Wrote: %s', self.leaflet_json_path)
         return jl, max_cpm
 
@@ -62,6 +62,7 @@ class GpsConverter:
                 p = {
                     'lat': tpv['lat'],
                     'lng': tpv['lon'],
+                    'alt': alt,
                     'meta': {
                         'time': TIME_TYPE.from_string(tpv['time']).timestamp(),
                         'speed': tpv['speed'],
@@ -179,6 +180,7 @@ class Converter:
             tracks, cpm = self._do_directory(k)
             if cpm >= max_cpm:
                 max_cpm = cpm
+            result[k] = tracks
         logger.info('Max CPM: %d', max_cpm)
 
     def _do_directory(self, path):
