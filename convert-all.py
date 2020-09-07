@@ -209,3 +209,4 @@ if __name__ == "__main__":
         set_log_info()
     for f in iglob('**/*.json', recursive=True):
         GpsConverter(f).convert()
+    raise NotImplementedError("Get EXIF from photos, make GeoJSON or KML/GPX")
