@@ -1,0 +1,12 @@
+Track Start: 2020-09-06 12:50:10+00:00 UTC
+Track End: 2020-09-06 22:21:33+00:00 UTC
+Track Duration: 9h 31m 23s
+6383 points in track
+Moving time: 9h 31m 17s
+Stopped time: 0s
+Max Speed: 79.5482 MPH
+2D (Horizontal) distance: 281.4909 Mi
+Total elevation increase: 16338.5886 ft
+Total elevation decrease: 16196.7185 ft
+Minimum elevation: 696.9357 ft
+Maximum elevation: 3648.1693 ft
