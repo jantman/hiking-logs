@@ -26,17 +26,37 @@ mapdiv.style.width = vw + 'px';
 mapdiv.style.height = vh + 'px';
 
 var map = L.map('map');
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+var baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+});
+baseLayer.addTo(map)
+
+var overlayMaps = {
+  "Hiking": L.layerGroup(),
+  "Driving": L.layerGroup(),
+  "CampSite_Photos": L.layerGroup()
+};
 
 track = null;
 for (const name in driving_tracks) {
   track = drawTrack(driving_tracks[name], name);
-  track.addTo(map);
+  track.addTo(overlayMaps["Driving"]);
 }
-// zoom the map to the polyline
-map.fitBounds(track.getBounds());
+overlayMaps["Driving"].addTo(map);
+
+for (const name in hiking_tracks) {
+  track = drawTrack(hiking_tracks[name], name);
+  track.addTo(overlayMaps["Hiking"]);
+}
+overlayMaps["Hiking"].addTo(map);
+
+L.control.layers({"Base": baseLayer}, overlayMaps).addTo(map);
+
+// zoom the map to fit everything
+map.fitBounds([
+    [34.963196, -85.554029],
+    [33.503180, -82.823926]
+]);
 
 </script>
 </body>
