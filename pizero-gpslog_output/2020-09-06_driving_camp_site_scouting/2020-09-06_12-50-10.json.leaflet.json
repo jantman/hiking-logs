@@ -1,0 +1,227 @@
+[
+    {
+        "lat": 33.753657107,
+        "lng": -84.245696887,
+        "meta": {
+            "altitude": 259.809,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.0,
+            "time": 1599396610.0,
+            "vdop": 3.1
+        }
+    },
+    {
+        "lat": 33.753667074,
+        "lng": -84.245747333,
+        "meta": {
+            "altitude": 256.355,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.115,
+            "time": 1599396621.0,
+            "vdop": 3.1
+        }
+    },
+    {
+        "lat": 33.753634276,
+        "lng": -84.245699134,
+        "meta": {
+            "altitude": 272.597,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.323,
+            "time": 1599396626.0,
+            "vdop": 3.1
+        }
+    },
+    {
+        "lat": 33.753634436,
+        "lng": -84.2456069,
+        "meta": {
+            "altitude": 290.568,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.315,
+            "time": 1599396631.0,
+            "vdop": 3.1
+        }
+    },
+    {
+        "lat": 33.753635018,
+        "lng": -84.245571521,
+        "meta": {
+            "altitude": 299.471,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.246,
+            "time": 1599396636.0,
+            "vdop": 3.1
+        }
+    },
+    {
+        "lat": 33.753645951,
+        "lng": -84.245587587,
+        "meta": {
+            "altitude": 294.057,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.0,
+            "time": 1599396641.0,
+            "vdop": 3.1
+        }
+    },
+    {
+        "lat": 33.753645951,
+        "lng": -84.245587587,
+        "meta": {
+            "altitude": 294.057,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.0,
+            "time": 1599396646.0,
+            "vdop": 3.1
+        }
+    },
+    {
+        "lat": 33.753656421,
+        "lng": -84.245596161,
+        "meta": {
+            "altitude": 292.319,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.0,
+            "time": 1599396651.0,
+            "vdop": 3.1
+        }
+    },
+    {
+        "lat": 33.753656421,
+        "lng": -84.245596161,
+        "meta": {
+            "altitude": 292.319,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.0,
+            "time": 1599396656.0,
+            "vdop": 3.1
+        }
+    },
+    {
+        "lat": 33.753648925,
+        "lng": -84.245596161,
+        "meta": {
+            "altitude": 291.763,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.0,
+            "time": 1599396661.0,
+            "vdop": 3.1
+        }
+    },
+    {
+        "lat": 33.753648925,
+        "lng": -84.245596161,
+        "meta": {
+            "altitude": 291.763,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.0,
+            "time": 1599396666.0,
+            "vdop": 3.1
+        }
+    },
+    {
+        "lat": 33.753653909,
+        "lng": -84.245595079,
+        "meta": {
+            "altitude": 290.936,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.0,
+            "time": 1599396671.0,
+            "vdop": 3.1
+        }
+    },
+    {
+        "lat": 33.753653909,
+        "lng": -84.245595079,
+        "meta": {
+            "altitude": 290.936,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.0,
+            "time": 1599396676.0,
+            "vdop": 3.1
+        }
+    },
+    {
+        "lat": 33.753658893,
+        "lng": -84.245593997,
+        "meta": {
+            "altitude": 290.109,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.0,
+            "time": 1599396681.0,
+            "vdop": 3.1
+        }
+    },
+    {
+        "lat": 33.753659395,
+        "lng": -84.245604735,
+        "meta": {
+            "altitude": 290.025,
+            "cpm": 0,
+            "fix": "3d",
+            "hdop": 2.4,
+            "pdop": 4.0,
+            "satellites": 10,
+            "speed": 0.0,
+            "time": 1599396686.0,
+            "vdop": 3.1
+        }
+    }
+]

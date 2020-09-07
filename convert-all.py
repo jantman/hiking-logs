@@ -20,10 +20,11 @@ logger = logging.getLogger()
 class GpsConverter:
 
     def __init__(self, fpath):
+        print('Loading: %s' % fpath)
         self.fpath = fpath
         self.csv_path = self.fpath + '.csv'
         self.gpx_path = self.fpath + '.gpx'
-        self.geojson_path = self.fpath + '.geojson'
+        self.leaflet_json_path = self.fpath + '.leaflet.json'
 
     def convert(self):
         lines = self._read_json(self.fpath)
@@ -36,17 +37,17 @@ class GpsConverter:
             with open(self.gpx_path, 'w') as fh:
                 fh.write(gpx.to_xml())
             logger.info('Wrote: %s', self.gpx_path)
-        if not os.path.exists(self.geojson_path):
-            logger.info('Writing to: %s', self.geojson_path)
-            j = self.to_geojson(lines)
-            with open(self.geojson_path, 'w') as fh:
+        if not os.path.exists(self.leaflet_json_path):
+            logger.info('Writing to: %s', self.leaflet_json_path)
+            j = self.to_leaflet_json(lines)
+            with open(self.leaflet_json_path, 'w') as fh:
                 fh.write(json.dumps(j, sort_keys=True, indent=4))
-            logger.info('Wrote: %s', self.geojson_path)
+            logger.info('Wrote: %s', self.leaflet_json_path)
 
-    def to_geojson(self, lines):
-        raise NotImplementedError("not implemented")
-        result = {}
-        for item in lines:
+    def to_leaflet_json(self, lines):
+        result = []
+        prev_alt = 0.0
+        for idx, item in enumerate(lines):
             try:
                 tpv = item['tpv'][0]
                 sky = item['sky'][0]
@@ -54,27 +55,29 @@ class GpsConverter:
                     'alt', item['gst'][0].get('alt', prev_alt)
                 )
                 prev_alt = alt
-                p = GPXTrackPoint(
-                    latitude=tpv['lat'],
-                    longitude=tpv['lon'],
-                    elevation=alt,
-                    time=TIME_TYPE.from_string(tpv['time']),
-                    speed=tpv['speed'],
-                    horizontal_dilution=sky.get('hdop', None),
-                    vertical_dilution=sky.get('vdop', None),
-                    position_dilution=sky.get('pdop', None)
-                )
+                p = {
+                    'lat': tpv['lat'],
+                    'lng': tpv['lon'],
+                    'meta': {
+                        'time': TIME_TYPE.from_string(tpv['time']).timestamp(),
+                        'speed': tpv['speed'],
+                        'hdop': sky.get('hdop', None),
+                        'vdop': sky.get('vdop', None),
+                        'pdop': sky.get('pdop', None),
+                        'altitude': alt,
+                        'cpm': item.get('_extra_data', {}).get('data', {}).get('cpm', 0)
+                    }
+                }
                 if tpv['mode'] == 2:
-                    p.type_of_gpx_fix = '2d'
+                    p['meta']['fix'] = '2d'
                 elif tpv['mode'] == 3:
-                    p.type_of_gpx_fix = '3d'
+                    p['meta']['fix'] = '3d'
                 if 'satellites' in sky:
-                    p.satellites = len(sky['satellites'])
-                cpm = item.get('_extra_data', {}).get('data', {}).get('cpm', 0)
-                seg.points.append(p)
+                    p['meta']['satellites'] = len(sky['satellites'])
+                result.append(p)
             except Exception:
-                sys.stderr.write(
-                    'Exception loading line %d:\n' % item['lineno']
+                logger.error(
+                    'Error loading line %d: %s', idx, item
                 )
                 raise
         return result
@@ -86,8 +89,9 @@ class GpsConverter:
             writer = csv.writer(csvfile, delimiter=',', quotechar='"')
             writer.writerow(headers)
             for l in lines:
-                lat = l.get('tpv', [{}])[0].get('lat')
-                lon = l.get('tpv', [{}])[0].get('lon')
+                tpv = l['tpv'][0]
+                lat = tpv['lat']
+                lon = tpv['lon']
                 if lat is None or lon is None:
                     logger.debug('Skip line: %s', l)
                     continue
@@ -106,7 +110,7 @@ class GpsConverter:
         track.segments.append(seg)
         prev_alt = 0.0
 
-        for item in logs:
+        for idx, item in enumerate(logs):
             try:
                 tpv = item['tpv'][0]
                 sky = item['sky'][0]
@@ -133,8 +137,8 @@ class GpsConverter:
                 cpm = item.get('_extra_data', {}).get('data', {}).get('cpm', 0)
                 seg.points.append(p)
             except Exception:
-                sys.stderr.write(
-                    'Exception loading line %d:\n' % item['lineno']
+                logger.error(
+                    'Error loading line %d: %s', idx, item
                 )
                 raise
         return g
@@ -149,7 +153,8 @@ class GpsConverter:
                     continue
                 try:
                     j = json.loads(line)
-                    result.append(j)
+                    if j != []:
+                        result.append(j)
                 except Exception as ex:
                     logger.error(
                         'Error loading line %d: %s', lineno, ex
@@ -208,5 +213,11 @@ if __name__ == "__main__":
     elif args.verbose == 1:
         set_log_info()
     for f in iglob('**/*.json', recursive=True):
-        GpsConverter(f).convert()
+        parts = f.split('/')[-1].split('.')
+        if (
+            len(parts) == 2 and
+            parts[1] == 'json' and
+            (parts[0].startswith('20') or parts[0].startswith('combined'))
+        ):
+            GpsConverter(f).convert()
     raise NotImplementedError("Get EXIF from photos, make GeoJSON or KML/GPX")

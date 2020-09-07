@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="gpx.py -- https://github.com/tkrajina/gpxpy">
+  <trk>
+    <src>pizero-gpslog gmc-500</src>
+    <trkseg>
+      <trkpt lat="33.753657107" lon="-84.245696887">
+        <ele>259.809</ele>
+        <time>2020-09-06T12:50:10Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+      <trkpt lat="33.753667074" lon="-84.245747333">
+        <ele>256.355</ele>
+        <time>2020-09-06T12:50:21Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+      <trkpt lat="33.753634276" lon="-84.245699134">
+        <ele>272.597</ele>
+        <time>2020-09-06T12:50:26Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+      <trkpt lat="33.753634436" lon="-84.2456069">
+        <ele>290.568</ele>
+        <time>2020-09-06T12:50:31Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+      <trkpt lat="33.753635018" lon="-84.245571521">
+        <ele>299.471</ele>
+        <time>2020-09-06T12:50:36Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+      <trkpt lat="33.753645951" lon="-84.245587587">
+        <ele>294.057</ele>
+        <time>2020-09-06T12:50:41Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+      <trkpt lat="33.753645951" lon="-84.245587587">
+        <ele>294.057</ele>
+        <time>2020-09-06T12:50:46Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+      <trkpt lat="33.753656421" lon="-84.245596161">
+        <ele>292.319</ele>
+        <time>2020-09-06T12:50:51Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+      <trkpt lat="33.753656421" lon="-84.245596161">
+        <ele>292.319</ele>
+        <time>2020-09-06T12:50:56Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+      <trkpt lat="33.753648925" lon="-84.245596161">
+        <ele>291.763</ele>
+        <time>2020-09-06T12:51:01Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+      <trkpt lat="33.753648925" lon="-84.245596161">
+        <ele>291.763</ele>
+        <time>2020-09-06T12:51:06Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+      <trkpt lat="33.753653909" lon="-84.245595079">
+        <ele>290.936</ele>
+        <time>2020-09-06T12:51:11Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+      <trkpt lat="33.753653909" lon="-84.245595079">
+        <ele>290.936</ele>
+        <time>2020-09-06T12:51:16Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+      <trkpt lat="33.753658893" lon="-84.245593997">
+        <ele>290.109</ele>
+        <time>2020-09-06T12:51:21Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+      <trkpt lat="33.753659395" lon="-84.245604735">
+        <ele>290.025</ele>
+        <time>2020-09-06T12:51:26Z</time>
+        <fix>3d</fix>
+        <sat>10</sat>
+        <hdop>2.4</hdop>
+        <vdop>3.1</vdop>
+        <pdop>4.0</pdop>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
