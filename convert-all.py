@@ -25,10 +25,11 @@ class GpsConverter:
         self.csv_path = self.fpath + '.csv'
         self.gpx_path = self.fpath + '.gpx'
         self.leaflet_json_path = self.fpath + '.leaflet.json'
+        logger.info('Reading: %s', fpath)
+        self.lines = self._read_json(self.fpath)
+        logger.info('Read %d lines', len(self.lines))
 
     def convert(self):
-        lines = self._read_json(self.fpath)
-        logger.info('Read %d lines', len(lines))
         if not os.path.exists(self.csv_path):
             self.to_csv(lines)
         if not os.path.exists(self.gpx_path):
@@ -37,17 +38,19 @@ class GpsConverter:
             with open(self.gpx_path, 'w') as fh:
                 fh.write(gpx.to_xml())
             logger.info('Wrote: %s', self.gpx_path)
+        jl, max_cpm = self.to_leaflet_json()
         if not os.path.exists(self.leaflet_json_path):
             logger.info('Writing to: %s', self.leaflet_json_path)
-            j = self.to_leaflet_json(lines)
             with open(self.leaflet_json_path, 'w') as fh:
-                fh.write(json.dumps(j, sort_keys=True, indent=4))
+                fh.write(json.dumps(lj, sort_keys=True, indent=4))
             logger.info('Wrote: %s', self.leaflet_json_path)
+        return jl, max_cpm
 
-    def to_leaflet_json(self, lines):
+    def to_leaflet_json(self):
         result = []
         prev_alt = 0.0
-        for idx, item in enumerate(lines):
+        max_cpm = 0
+        for idx, item in enumerate(self.lines):
             try:
                 tpv = item['tpv'][0]
                 sky = item['sky'][0]
@@ -55,6 +58,7 @@ class GpsConverter:
                     'alt', item['gst'][0].get('alt', prev_alt)
                 )
                 prev_alt = alt
+                cpm = item.get('_extra_data', {}).get('data', {}).get('cpm', 0)
                 p = {
                     'lat': tpv['lat'],
                     'lng': tpv['lon'],
@@ -65,7 +69,7 @@ class GpsConverter:
                         'vdop': sky.get('vdop', None),
                         'pdop': sky.get('pdop', None),
                         'altitude': alt,
-                        'cpm': item.get('_extra_data', {}).get('data', {}).get('cpm', 0)
+                        'cpm': cpm
                     }
                 }
                 if tpv['mode'] == 2:
@@ -74,21 +78,23 @@ class GpsConverter:
                     p['meta']['fix'] = '3d'
                 if 'satellites' in sky:
                     p['meta']['satellites'] = len(sky['satellites'])
+                if cpm >= max_cpm:
+                    max_cpm = cpm
                 result.append(p)
             except Exception:
                 logger.error(
                     'Error loading line %d: %s', idx, item
                 )
                 raise
-        return result
+        return result, max_cpm
 
-    def to_csv(self, lines):
+    def to_csv(self):
         headers = ['Latitude', 'Longitude', 'Time', 'CPM']
         logger.info('Writing to: %s', self.csv_path)
         with open(self.csv_path, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile, delimiter=',', quotechar='"')
             writer.writerow(headers)
-            for l in lines:
+            for l in self.lines:
                 tpv = l['tpv'][0]
                 lat = tpv['lat']
                 lon = tpv['lon']
@@ -101,7 +107,7 @@ class GpsConverter:
                 ])
         logger.info('Wrote: %s', self.csv_path)
 
-    def _gpx_for_logs(self, logs):
+    def _gpx_for_logs(self):
         g = GPX()
         track = GPXTrack()
         track.source = 'pizero-gpslog gmc-500'
@@ -110,7 +116,7 @@ class GpsConverter:
         track.segments.append(seg)
         prev_alt = 0.0
 
-        for idx, item in enumerate(logs):
+        for idx, item in enumerate(self.lines):
             try:
                 tpv = item['tpv'][0]
                 sky = item['sky'][0]
@@ -162,6 +168,41 @@ class GpsConverter:
         return result
 
 
+class Converter:
+
+    def run(self):
+        max_cpm = 0
+        result = {
+            'hiking': None, 'driving': None
+        }
+        for k in sorted(result.keys()):
+            tracks, cpm = self._do_directory(k)
+            if cpm >= max_cpm:
+                max_cpm = cpm
+        logger.info('Max CPM: %d', max_cpm)
+
+    def _do_directory(self, path):
+        logger.info('Doing directory: %s', path)
+        max_cpm = 0
+        tracks = []
+        for f in iglob(f'pizero-gpslog_output/{path}/**/*.json', recursive=True):
+            parts = f.split('/')[-1].split('.')
+            if (
+                len(parts) == 2 and
+                parts[1] == 'json' and
+                (parts[0].startswith('20') or parts[0].startswith('combined'))
+            ):
+                j, cpm = GpsConverter(f).convert()
+                if cpm >= max_cpm:
+                    max_cpm = cpm
+                tracks.append(j)
+        logger.info(
+            'Directory %s: got %d tracks and max cpm %d',
+            path, len(tracks), max_cpm
+        )
+        return tracks, max_cpm
+
+
 def parse_args(argv):
     """
     parse arguments/options
@@ -208,16 +249,9 @@ def set_log_level_format(level, format):
 if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
     # set logging level
-    if args.verbose > 1:
+    if args.verbose >= 1:
         set_log_debug()
-    elif args.verbose == 1:
+    else:
         set_log_info()
-    for f in iglob('**/*.json', recursive=True):
-        parts = f.split('/')[-1].split('.')
-        if (
-            len(parts) == 2 and
-            parts[1] == 'json' and
-            (parts[0].startswith('20') or parts[0].startswith('combined'))
-        ):
-            GpsConverter(f).convert()
+    Converter().run()
     raise NotImplementedError("Get EXIF from photos, make GeoJSON or KML/GPX")
