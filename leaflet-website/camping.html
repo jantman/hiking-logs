@@ -8,8 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="leaflet-1.7.1/leaflet.css"/>
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="Leaflet.awesome-markers-2.0.2/dist/leaflet.awesome-markers.css"/>
 <script src="leaflet-1.7.1/leaflet.js"></script>
 <script src="Leaflet.MultiOptionsPolyline.js"></script>
+<script src="Leaflet.awesome-markers-2.0.2/dist/leaflet.awesome-markers.min.js"></script>
 <script src="zepto.min.js"></script>
 <script src="utils.js"></script>
 
@@ -18,6 +21,7 @@
 
 <div id="map" style="width: 600px; height: 600px;"></div>
 <script src="data.js"></script>
+<script src="places_to_camp.js"></script>
 <script>
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) - 20;
 const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0) - 20;
@@ -34,7 +38,8 @@ baseLayer.addTo(map)
 var overlayMaps = {
   "Hiking": L.layerGroup(),
   "Driving": L.layerGroup(),
-  "CampSite_Photos": L.layerGroup()
+  "CampSite_Photos": L.layerGroup(),
+  "PossibleSpots": L.layerGroup()
 };
 
 track = null;
@@ -54,6 +59,11 @@ overlayMaps["Hiking"].addTo(map);
 photoGroup = addPhotos(camp_site_photos);
 photoGroup.addTo(overlayMaps["CampSite_Photos"]);
 overlayMaps["CampSite_Photos"].addTo(map);
+
+//var places_to_camp
+sitesGroup = addPossibleSites(places_to_camp);
+sitesGroup.addTo(overlayMaps["PossibleSpots"]);
+overlayMaps["PossibleSpots"].addTo(map);
 
 L.control.layers({"Base": baseLayer}, overlayMaps).addTo(map);
 

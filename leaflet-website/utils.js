@@ -46,3 +46,13 @@ function addPhotos(photos) {
   }
   return fg;
 }
+
+function addPossibleSites(sites) {
+  var myIcon = L.AwesomeMarkers.icon({icon: 'question', prefix: 'fa', markerColor: 'red'});
+  fg = L.featureGroup();
+  for (idx in sites) {
+    p = sites[idx];
+    L.marker([p["lat"], p["lng"]], {icon: myIcon}).bindPopup(p["meta"]["name"] + "\n" + p["lat"] + "," + p["lng"]).addTo(fg);
+  }
+  return fg;
+}
