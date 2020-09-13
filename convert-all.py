@@ -87,7 +87,7 @@ class GpsConverter:
                     p['meta']['fix'] = '3d'
                 if 'satellites' in sky:
                     p['meta']['satellites'] = len(sky['satellites'])
-                if cpm >= max_cpm:
+                if cpm is not None and cpm >= max_cpm:
                     max_cpm = cpm
                 result.append(p)
             except Exception:
