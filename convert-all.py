@@ -39,10 +39,10 @@ class GpsConverter:
 
     def convert(self):
         if not os.path.exists(self.csv_path):
-            self.to_csv(lines)
+            self.to_csv()
         if not os.path.exists(self.gpx_path):
             logger.info('Writing to: %s', self.gpx_path)
-            gpx = self._gpx_for_logs(lines)
+            gpx = self._gpx_for_logs()
             with open(self.gpx_path, 'w') as fh:
                 fh.write(gpx.to_xml())
             logger.info('Wrote: %s', self.gpx_path)
