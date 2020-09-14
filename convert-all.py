@@ -205,7 +205,13 @@ class Converter:
             iglob('/mnt/backup/android/sdcard/DCIM/CampSites/*.jpg')
         ):
             name = os.path.basename(f)
-            i = Image(f)
+            try:
+                i = Image(f)
+            except Exception as ex:
+                logger.error(
+                    'Error loading EXIF from %s: %s', f, ex
+                )
+                continue
             if 'gps_latitude' not in dir(i):
                 logger.warning('No EXIF GPS Latitude: %s', name)
                 continue
