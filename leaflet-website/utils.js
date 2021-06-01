@@ -43,7 +43,9 @@ function addPhotos(photos) {
   for (idx in photos) {
     p = photos[idx];
     L.marker([p["lat"], p["lng"]]).bindPopup(
-      "<a href=\"/CampSites/" + p["meta"]["name"] + "\" target=\"_blank\">" + p["meta"]["name"] + "</a>" +
+      "<a href=\"/CampSites/" + p["meta"]["name"] + "\" target=\"_blank\">" +
+      "<img src=\"/CampSites/" + p["meta"]["name"] + "\" style=\"width: 320px;\">" +
+      p["meta"]["name"] + "</a>" +
       "\n<a href=\"https://www.google.com/maps/search/?api=1&query=" + p["lat"] + "," + p["lng"] + "\" target=\"_blank\">" + p["lat"] + "," + p["lng"] + "</a>"
     ).addTo(fg);
   }
